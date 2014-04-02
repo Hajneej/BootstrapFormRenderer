@@ -174,6 +174,10 @@ class BootstrapRenderer extends Nette\Object implements Nette\Forms\IFormRendere
 		}
 
 		$el = $control->getControlPrototype();
+    if ($control instanceof Controls\TextInput) {
+      $el->addClass('form-control');
+    }
+		
 		if ($placeholder = $control->getOption('placeholder')) {
 			if (!$placeholder instanceof Html && $translator) {
 				$placeholder = $translator->translate($placeholder);
